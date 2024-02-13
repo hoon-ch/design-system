@@ -1,0 +1,58 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "ATG Design System",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "wallabyjs.console-ninja",
+        "unifiedjs.vscode-mdx",
+        "chakrounanas.turbo-console-log",
+        "codezombiech.gitignore",
+        "dbaeumer.vscode-eslint",
+        "donjayamanne.git-extension-pack",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "seatonjiang.gitmoji-vscode",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "github.github-vscode-theme",
+        "gruntfuggly.todo-tree",
+        "wayou.vscode-todo-highlight",
+        "intellsmi.comment-translate",
+        "mechatroner.rainbow-csv",
+        "mhutchie.git-graph",
+        "ms-ceintl.vscode-language-pack-ko",
+        "ms-vscode.live-server",
+        "ms-vsliveshare.vsliveshare",
+        "oderwat.indent-rainbow",
+        "ryanluker.vscode-coverage-gutters",
+        "shardulm94.trailing-spaces",
+        "streetsidesoftware.code-spell-checker",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "bradlc.vscode-tailwindcss",
+        "austenc.tailwind-docs",
+        "ms-playwright.playwright"
+      ],
+      "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    }
+  }
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}

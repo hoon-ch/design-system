@@ -1,0 +1,68 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { cn } from "@atgui/lib";
+
+<Meta title="utilities/cn" />
+
+# Classname Combiner (`cn` Function)
+
+`cn` 함수는 `clsx`와 `tailwind-merge`를 사용하여 여러 클래스 이름을 효율적으로 병합하는 유틸리티입니다. 이 함수는 개발자가 컴포넌트에 동적인 스타일링을 적용할 때 유용합니다.
+
+## 사용 방법
+
+`cn` 함수는 다양한 타입의 클래스 값을 인자로 받아들이고, 이를 하나의 문자열로 병합하여 반환합니다.
+
+## 사용 예제
+
+`cn` 함수는 여러 클래스 이름을 결합하고, Tailwind CSS의 유틸리티 클래스 충돌을 해결하는 데 사용됩니다. 다음은 이 함수의 사용 예입니다:
+
+```jsx
+const exampleClass = cn("p-4", "text-center", "bg-red-500 hover:bg-red-700");
+// 결과: 'p-4 text-center bg-red-500 hover:bg-red-700'
+```
+
+```tsx
+import React from "react";
+import { cn } from "./cn";
+
+export const ExampleComponent = () => {
+  const primaryButtonClasses = "bg-blue-500 hover:bg-blue-700 text-white";
+  const disabledClasses = "bg-gray-500 cursor-not-allowed";
+
+  return (
+    <button className={cn(primaryButtonClasses, { [disabledClasses]: true })}>
+      Click Me
+    </button>
+  );
+};
+```
+
+```tsx
+export const SecondExample = () => {
+  const [hidden, setHidden] = useState(false);
+
+  return (
+    <div>
+      <article className={cn("bg-red-500", { hidden: hidden })}>
+        컨트롤할 영역
+      </article>
+      <button onClick={() => setHidden(!hidden)}>Toggle</button>
+    </div>
+  );
+};
+```
+
+## API
+
+`cn(...inputs: ClassValue[])`
+
+- `inputs: ClassValue[]` - 결합하고자 하는 클래스 이름들입니다.
+- 반환값: `string` - 결합된 클래스 이름 문자열을 반환합니다.
+
+## 사용 시 주의사항
+
+- `cn` 함수는 클래스 이름 충돌을 자동으로 해결하지 않습니다. 따라서 Tailwind CSS의 충돌 규칙을 인지하고 사용하는 것이 중요합니다.
+- 복잡한 조건부 클래스 결합에는 clsx를 직접 사용하는 것이 더 효과적일 수 있습니다.
+
+## 추가 정보
+
+[clsx](https://github.com/lukeed/clsx)와 [tailwind-merge](https://github.com/dcastil/tailwind-merge)에 대한 더 자세한 정보는 각 라이브러리의 문서를 참조하세요.

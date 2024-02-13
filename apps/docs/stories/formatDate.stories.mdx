@@ -1,0 +1,27 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { formatDate } from "@atgui/lib";
+
+<Meta title="Utilities/formatDate" />
+
+# `formatDate` Function
+
+`formatDate` 함수는 다양한 형태의 날짜 데이터를 받아 한국어 형식에 맞춘 문자열로 변환하는 함수입니다. 이 함수는 문자열, 숫자, 또는 Date 객체를 인자로 받아들일 수 있으며, 출력 형식은 "년 월 일" 순입니다.
+
+## 사용 방법
+
+`formatDate` 함수는 입력으로 문자열, 숫자, 또는 Date 객체를 받고, 해당 날짜를 `"ko-KR"` 로케일을 사용하여 포맷합니다.
+
+### 예시
+
+아래 예시는 `formatDate` 함수를 사용하는 방법을 보여줍니다.
+
+```tsx
+import React from "react";
+import { formatDate } from "./formatDate";
+
+export const ExampleComponent = () => {
+  const date = new Date();
+
+  return <div>오늘 날짜: {formatDate(date)} // '2023년 11월 16일'</div>;
+};
+```
