@@ -1,7 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cn } from "@atgui/lib";
+import { cn } from "@atg-ui/lib";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(

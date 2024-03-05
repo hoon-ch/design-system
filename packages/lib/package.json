@@ -1,5 +1,5 @@
 {
-  "name": "@atgui/lib",
+  "name": "@atg-ui/lib",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -16,8 +16,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@tools/eslint-config": "workspace:*",
-    "@tools/typescript-config": "workspace:*",
+    "@atg-tools/eslint-config": "workspace:*",
+    "@atg-tools/typescript-config": "workspace:*",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "eslint": "^8.56.0",

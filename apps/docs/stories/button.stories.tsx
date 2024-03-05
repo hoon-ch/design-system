@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LuLoader2, LuMail } from "react-icons/lu";
 import { RxFilePlus } from "react-icons/rx";
 
-import { Button } from "@atgui/button";
+import { Button } from "@atg-ui/button";
 
 const meta: Meta<typeof Button> = {
   title: "components/Button",

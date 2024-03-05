@@ -4,7 +4,9 @@
   "name": "ATG Design System",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
-
+  "mounts": [
+    "source=global-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume"
+  ],
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
 
@@ -12,7 +14,7 @@
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "yarn install",
+  "postCreateCommand": "sudo chown node .pnpm-store",
 
   // Configure tool-specific properties.
   "customizations": {

@@ -1,5 +1,5 @@
 {
-  "name": "@tools/tailwindcss-config",
+  "name": "@atg-tools/tailwindcss-config",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
