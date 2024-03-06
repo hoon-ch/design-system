@@ -1,0 +1,155 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as DataTableStories from "./data-table.stories";
+
+<Meta of={DataTableStories} />
+
+# DataTable
+
+`DataTable` 컴포넌트는 `@tanstack/react-table`을 기반으로 만들어진 테이블 뷰를 제공합니다. 이 컴포넌트는 데이터와 열 정의를 받아 사용자에게 테이블 형태로 보여주며, 정렬, 필터링, 행 선택 등의 기능을 지원합니다.
+
+## 하위 컴포넌트
+
+`DataTable`은 다음과 같은 하위 컴포넌트들과 함께 사용됩니다:
+
+- **DataTableView**: 데이터 테이블의 뷰를 제공합니다. 사용자에게 실제 데이터를 보여주는 인터페이스 역할을 합니다.
+- **DataTableViewOptions**: 사용자가 테이블의 뷰의 컬럼을 숨기거나 표시할 수 있게 해줍니다.
+- **DataTableStringFilter**: 문자열 기반의 필터링 기능을 제공합니다. 사용자가 데이터를 쉽게 찾을 수 있도록 도와줍니다.
+- **DataTableRowsPerPage**: 사용자가 한 페이지에 표시할 행의 수를 선택할 수 있게 해줍니다.
+- **DataTablePagination**: 페이지네이션 기능을 제공합니다. 사용자가 다양한 페이지의 데이터를 탐색할 수 있도록 도와줍니다.
+
+이러한 컴포넌트들은 `DataTable` 컴포넌트 내에서 래핑되어 제공되며, 사용자는 이를 통해 복잡한 데이터를 쉽게 관리하고 조작할 수 있습니다.
+
+## 컨텍스트 공유
+
+`DataTable`과 그 하위 컴포넌트들은 React의 Context API를 사용하여 상태와 기능을 공유합니다. `TableContext`는 `DataTable` 컴포넌트에 의해 제공되며, 모든 하위 컴포넌트는 이 컨텍스트를 통해 필요한 데이터와 함수에 접근할 수 있습니다. 이 접근 방식은 데이터 테이블의 상태를 쉽게 관리하고, 하위 컴포넌트 간의 데이터 동기화를 용이하게 합니다.
+
+## Props
+
+- `data`: 테이블에 표시할 데이터 배열.
+- `columns`: 각 열에 대한 정의를 포함하는 배열.
+- `children`: `DataTable` 내부에 렌더링할 자식 요소들.
+
+## 사용 예시
+
+### Default: 기본 사용
+
+기본적인 사용 예시입니다. `DataTable` 컴포넌트는 `data`와 `columns`를 props로 받아 테이블 객체를 생성하고 제공합니다. `DataTableView` 컴포넌트는 `DataTable` 컴포넌트 내부에 렌더링되며, 사용자에게 데이터를 보여줍니다.
+
+<Canvas
+  of={DataTableStories.Default}
+  source={{
+    language: 'tsx',
+    code: `
+import React from 'react';
+import { DataTable, DataTableView } from '@story/data-table';
+
+export const DefaultDataTable = () => {
+  const data = [{ /* 데이터 객체 */ }];
+  const columns = [{ /* 열 정의 객체 */ }];
+
+return (
+<DataTable data={data} columns={columns}>
+<DataTableView/>
+</DataTable>
+);
+};
+`
+}}
+/>
+
+### View Options: 컬럼 컨트롤
+
+View Options 컴포넌트는 컬럼의 숨김/표시 기능만을 제공합니다.
+현재 DropDownMenu의 로직과 Storybook의 충돌로 인해 현재 페이지에서는 사용할 수 없습니다. escape를 눌러서 닫아주세요.
+
+<Canvas
+  of={DataTableStories.ViewOptions}
+  source={{
+    language: 'tsx',
+    code: `
+    import React from 'react';
+import { DataTable, DataTableView, DataTableViewOptions } from '@story/data-table';
+
+export const ViewOptionsDataTable = () => {
+  return (
+    <DataTable data={data} columns={columns}>
+      <DataTableViewOptions>
+      <DataTableView/>
+    </DataTable>
+  );
+};`
+  }}
+  />
+
+### String Filter: 문자열 필터링
+
+String Filter 컴포넌트는 문자열 기반의 필터링 기능을 제공합니다. 사용자가 데이터를 쉽게 찾을 수 있도록 도와줍니다.
+
+<Canvas
+  of={DataTableStories.StringFilter}
+  source={{
+    language: 'tsx',
+    code: `
+    import React from 'react';
+import { DataTable, DataTableView, DataTableViewOptions } from '@story/data-table';
+
+export const ViewOptionsDataTable = () => {
+  return (
+    <DataTable data={data} columns={columns}>
+      <DataTableStringFilter
+          accessorKey={accessorKey}
+          placeholder={placeholder}
+        />
+      <DataTableView/>
+    </DataTable>
+  );
+};`
+  }}
+  />
+
+### Pagination: 페이지네이션
+
+Pagination 컴포넌트는 페이지네이션 기능을 제공합니다. 사용자가 다양한 페이지의 데이터를 탐색할 수 있도록 도와줍니다.
+
+<Canvas
+  of={DataTableStories.Pagination}
+  source={{
+    language: 'tsx',
+    code: `
+    import React from 'react';
+import { DataTable, DataTableView, DataTablePagination } from '@story/data-table';
+
+export const PaginationDataTable = () => {
+  return (
+    <DataTable data={data} columns={columns}>
+      <DataTableView className="h-[30dvh]"/>
+      <DataTablePagination />
+    </DataTable>
+  );
+};`
+  }}
+  />
+
+### Rows Per Page: 페이지당 행
+
+Rows Per Page 컴포넌트는 사용자가 한 페이지에 표시할 행의 수를 선택할 수 있게 해줍니다.
+
+<Canvas
+  of={DataTableStories.RowsPerPage}
+  source={{
+    language: 'tsx',
+    code: `
+    import React from 'react';
+import { DataTable, DataTableView, DataTableRowsPerPage } from '@story/data-table';
+
+export const RowsPerPageDataTable = () => {
+  return (
+    <DataTable data={data} columns={columns}>
+      <DataTableRowsPerPage/>
+      <DataTableView className="h-[30dvh]"/>
+      <DataTablePagination />
+    </DataTable>
+  );
+};`
+  }}
+  />

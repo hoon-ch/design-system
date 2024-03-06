@@ -1,5 +1,5 @@
 {
-  "name": "@repo/docs",
+  "name": "@atg-ui/docs",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -11,8 +11,17 @@
     "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
   },
   "dependencies": {
-    "@acme/ui": "workspace:*",
     "@atg-ui/button": "workspace:*",
+    "@atg-ui/checkbox": "workspace:*",
+    "@atg-ui/dropdown-menu": "workspace:*",
+    "@atg-ui/input": "workspace:*",
+    "@atg-ui/scroll-area": "workspace:*",
+    "@atg-ui/select": "workspace:*",
+    "@atg-ui/skeleton": "workspace:*",
+    "@atg-ui/data-table": "workspace:*",
+    "@atg-ui/table": "workspace:*",
+    "@atg-ui/label": "workspace:*",
+    "@atg-ui/separator": "workspace:*",
     "@atg-ui/lib": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

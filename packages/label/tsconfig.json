@@ -1,0 +1,5 @@
+{
+  "extends": "@atg-tools/typescript-config/react-library.json",
+  "include": [".", "../../apps/docs/stories/input.stories.tsx", "../../apps/docs/stories/label.stories.tsx", "../../apps/docs/stories/checkbox.stories.tsx"],
+  "exclude": ["dist", "build", "node_modules"]
+}
