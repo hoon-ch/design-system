@@ -45,7 +45,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
-    "eslint-plugin-storybook": "^0.6.15",
+    "eslint-plugin-storybook": "^0.8.0",
     "postcss": "^8.4.35",
     "rehype-highlight": "^7.0.0",
     "remark-gfm": "^3.0.0",
